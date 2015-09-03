@@ -6,7 +6,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
-namespace QANotes.DAL
+namespace QANotes.DataAccess
 {
     public class QANotesContext : DbContext
     {

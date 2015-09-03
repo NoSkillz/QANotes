@@ -1,6 +1,6 @@
 namespace QANotes.Migrations
 {
-    using DAL;
+    using DataAccess;
     using Models;
     using System;
     using System.Data.Entity;
