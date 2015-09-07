@@ -50,7 +50,9 @@ namespace QANotes.Controllers
                 // Create a claims identity for user
                 await SignIn(user);
 
-                return RedirectToAction(GetRedirectUrl(model.ReturnUrl));
+                if (model.ReturnUrl != null)
+                    return Redirect(model.ReturnUrl);
+                return RedirectToAction("Index", "Notes");
             }
 
             ModelState.AddModelError("", "Invalid email or password");
@@ -74,7 +76,7 @@ namespace QANotes.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register([Bind(Include = "FirstName,Password,LastName,Email,Country,UserName")] RegisterModel model)
+        public async Task<ActionResult> Register([Bind(Include = "FirstName,Password,LastName,Email,Country")] RegisterModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -83,12 +85,12 @@ namespace QANotes.Controllers
 
             var user = new AppUser
             {
-                UserName = model.UserName,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Email = model.Email,
                 Country = model.Country,
-                DateCreated = DateTime.Now
+                DateCreated = DateTime.Now,
+                UserName = model.Email
             };
 
             var result = await userManager.CreateAsync(user, model.Password);
