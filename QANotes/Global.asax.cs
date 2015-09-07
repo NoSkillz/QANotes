@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QANotes.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,7 @@ namespace QANotes
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilter(GlobalFilters.Filters);
         }
     }
 }

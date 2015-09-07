@@ -1,0 +1,14 @@
+﻿@model QANotes.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel(Model)
+
+    <button type="submit">Register</button>
+}

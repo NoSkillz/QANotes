@@ -1,4 +1,5 @@
-﻿using QANotes.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using QANotes.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace QANotes.DataAccess
 {
-    public class QANotesContext : DbContext
+    public class QANotesContext : IdentityDbContext
     {
         public QANotesContext() : base("QANotes")
         {
