@@ -13,7 +13,5 @@ namespace QANotes.Models
         {
 
         }
-
-        public string Country { get; set; }
     }
 }

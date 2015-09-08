@@ -55,7 +55,7 @@ namespace QANotes.Controllers
                 return RedirectToAction("Index", "Notes");
             }
 
-            ModelState.AddModelError("", "Invalid email or password");
+            ModelState.AddModelError("Password", "Invalid email or password");
 
             return View();
         }
@@ -76,7 +76,7 @@ namespace QANotes.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register([Bind(Include = "FirstName,Password,LastName,Email,Country")] RegisterModel model)
+        public async Task<ActionResult> Register([Bind(Include = "Email,Password,RepeatPassword")] RegisterModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -85,10 +85,7 @@ namespace QANotes.Controllers
 
             var user = new AppUser
             {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
                 Email = model.Email,
-                Country = model.Country,
                 DateCreated = DateTime.Now,
                 UserName = model.Email
             };
@@ -103,7 +100,7 @@ namespace QANotes.Controllers
 
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", error);
+                ModelState.AddModelError("Email", error);
             }
 
             return View();
@@ -133,6 +130,19 @@ namespace QANotes.Controllers
             GetAuthenticationManager().SignIn(identity);
         }
 
+        public bool IsAuthenticated()
+        {
+            if (Request.IsAuthenticated)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing && userManager != null)

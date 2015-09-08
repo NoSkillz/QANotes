@@ -10,8 +10,6 @@ namespace QANotes.Controllers
 {
     public class NotesController : Controller
     {
-        private QANotesContext db;
-
         // GET: Notes
         public ActionResult Index(QANotesContext db)
         {
