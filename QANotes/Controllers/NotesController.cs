@@ -13,8 +13,28 @@ namespace QANotes.Controllers
         // GET: Notes
         public ActionResult Index(QANotesContext db)
         {
-            var viewModel = new NoteNoteTypesViewModel();
-            viewModel.Notes = db.Note;
+            var currentuser = "a26b4b32-c487-48ed-8474-915521ee920a";
+
+            //TODO FIX THIS SHIT
+
+            //NoteNoteTypesViewModel viewModel = new NoteNoteTypesViewModel();
+            //var user = db.Users.FirstOrDefault(p => p.Id == currentuser);
+            IEnumerable<Note> notes = (from u in db.Users
+                         join n in db.Note on u.Id equals n.UserId
+                         where u.Id == currentuser
+                         select new
+                         {
+                             n.Id,
+                             n.NoteTypeId,
+                             n.UserId,
+                             n.Description
+                         }) as IEnumerable<Note>;
+
+            var viewModel = new NoteNoteTypesViewModel
+            {
+                Notes = notes
+            };
+
             return View(viewModel);
         }
     }

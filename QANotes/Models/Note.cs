@@ -10,5 +10,6 @@ namespace QANotes.Models
         public int Id { get; set; }
         public string Description { get; set; }
         public virtual int NoteTypeId { get; set; }
+        public virtual string UserId { get; set; }
     }
 }
