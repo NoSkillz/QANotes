@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace QANotes.Models
 
         [Required]
         [DataType(DataType.Password)]
+        [DisplayName("Repeat password")]
         [System.ComponentModel.DataAnnotations.Compare("Password")]
         public string RepeatPassword { get; set; }
 
