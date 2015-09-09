@@ -1,8 +1,11 @@
 namespace QANotes.Migrations
 {
     using DataAccess;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -17,19 +20,7 @@ namespace QANotes.Migrations
 
         protected override void Seed(QANotesContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-
+            //Seed notetypes
             context.NoteTypes.AddOrUpdate(
                 p => p.Id,
                 new NoteType { Id = 1, Name = "Bug" },
@@ -37,6 +28,7 @@ namespace QANotes.Migrations
                 new NoteType { Id = 3, Name = "Note" }
                 );
 
+            //Seed built-in notes
             context.Note.AddOrUpdate(
                 p => p.Id,
                 new Note { Id = 1, Description = "Test bug", NoteTypeId = 1 },
@@ -44,10 +36,45 @@ namespace QANotes.Migrations
                 new Note { Id = 3, Description = "Test note", NoteTypeId = 3 }
                 );
 
+            //Seed custom notes
             context.CustomNote.AddOrUpdate(
                 p => p.Id,
                 new CustomNoteType { Id = 1, Name = "Custom note" }
                 );
+
+            #region Seed users
+            string password = new PasswordHasher().HashPassword("password");
+
+            context.Users.AddOrUpdate(
+                p => p.Email,
+                new AppUser
+                {
+                    Id = "A26B4B32-C487-48ED-8474-915521EE920A",
+                    Email = "noskillz05@gmail.com",
+                    DateCreated = DateTime.Now,
+                    UserName = "noskillz05@gmail.com",
+                    SecurityStamp = "F8647A37-D900-438D-8F16-DC0F65689914".ToString(),
+                    PasswordHash = password,
+                },
+                new AppUser
+                {
+                    Id = "BAE991AB-A59F-4210-A732-01B15FE88FFC",
+                    Email = "randomuser@gmail.com",
+                    DateCreated = DateTime.Now,
+                    UserName = "randomuser@gmail.com",
+                    SecurityStamp = "BBE32731-3202-4670-A0DF-1C439C353160".ToString(),
+                    PasswordHash = password
+                },
+                new AppUser
+                {
+                    Id = "8428FC78-A280-4499-AD66-C276CADDD139",
+                    Email = "vasile.mure@yahoo.com",
+                    DateCreated = DateTime.Today,
+                    UserName = "vasile.mure@yahoo.com",
+                    SecurityStamp = "EDBE5CF3-433C-4271-80AD-E35B63297C5B".ToString(),
+                    PasswordHash = password
+                });
+            #endregion
         }
     }
 }
