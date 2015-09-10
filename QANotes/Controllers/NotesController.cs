@@ -30,7 +30,7 @@ namespace QANotes.Controllers
                              n.Description
                          }) as IEnumerable<Note>;
 
-            var viewModel = new NoteNoteTypesViewModel
+            var viewModel = new NotesUsersViewModel
             {
                 Notes = notes
             };

@@ -153,6 +153,7 @@
     <Compile Include="Auth\Startup.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CustomNoteViewModel.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="DataAccess\QANotesContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -163,7 +164,7 @@
     <Compile Include="Models\CustomNoteType.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Note.cs" />
-    <Compile Include="Models\NoteNoteTypesViewModel.cs" />
+    <Compile Include="Models\NotesUsersViewModel.cs" />
     <Compile Include="Models\NoteType.cs" />
     <Compile Include="Models\AppPrincipal.cs" />
     <Compile Include="Models\RegisterModel.cs" />
