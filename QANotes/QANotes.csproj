@@ -154,7 +154,6 @@
     <Compile Include="Auth\Startup.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
-    <Compile Include="Controllers\CustomNoteViewModel.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="DataAccess\QANotesContext.cs" />
     <Compile Include="Global.asax.cs">
