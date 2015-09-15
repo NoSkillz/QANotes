@@ -145,6 +145,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\script.js" />
+    <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -176,7 +177,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Notes\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Shared\_AuthPartial.cshtml" />
     <None Include="Web.Debug.config">
