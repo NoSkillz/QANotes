@@ -157,8 +157,7 @@
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="DataAccess\NoteRepository.cs" />
     <Compile Include="DataAccess\QANotesContext.cs" />
-    <Compile Include="DataAccess\Repositories.cs" />
-    <Compile Include="DataAccess\Repository.cs" />
+    <Compile Include="DataAccess\IRepo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

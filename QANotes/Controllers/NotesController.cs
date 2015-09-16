@@ -10,11 +10,11 @@ namespace QANotes.Controllers
 {
     public class NotesController : Controller
     {
-        private NoteRepository repo;
+        private NoteRepository noteRepo;
 
-        public NotesController(NoteRepository noteRepo)
+        public NotesController()
         {
-            repo = new NoteRepository(new QANotesContext());
+            noteRepo = new NoteRepository(new QANotesContext());
         }
 
         // GET: Notes
