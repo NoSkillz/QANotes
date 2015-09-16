@@ -27,9 +27,14 @@ namespace QANotes.DataAccess
             //db.SaveChanges();
         }
 
-        public List<Note> GetAll()
+        public IEntity GetById(int id)
         {
-            throw new NotImplementedException();
+            return db.Note.FirstOrDefault(p => p.Id == id);
+        }
+
+        public IQueryable<Note> GetAll()
+        {
+            return db.Note.Select(p => p);
         }
 
         public void Update(Note entity)

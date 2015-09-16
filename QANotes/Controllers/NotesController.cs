@@ -22,6 +22,7 @@ namespace QANotes.Controllers
         {
             var currentuser = "a26b4b32-c487-48ed-8474-915521ee920a";
 
+
             //TODO FIX THIS SHIT
 
             //NoteNoteTypesViewModel viewModel = new NoteNoteTypesViewModel();

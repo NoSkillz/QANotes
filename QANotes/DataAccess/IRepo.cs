@@ -10,9 +10,10 @@ namespace QANotes.DataAccess
     public interface IRepo<T>
         where T : IEntity
     {
-        List<T> GetAll();
+        IQueryable<T> GetAll();
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
+        IEntity GetById(int id);
     }
 }
