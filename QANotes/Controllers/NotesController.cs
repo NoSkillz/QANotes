@@ -42,9 +42,13 @@ namespace QANotes.Controllers
             //{
             //    Notes = notes
             //};
+            var note = noteRepo.Where(p => p.UserId == currentuser).AsEnumerable();
+            var viewModel = new NotesUsersViewModel
+            {
+                Notes = note
+            };
 
-            throw new NotImplementedException();
-
+            return View(viewModel);
         }
     }
 }

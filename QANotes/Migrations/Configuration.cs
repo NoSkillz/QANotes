@@ -31,9 +31,9 @@ namespace QANotes.Migrations
             //Seed built-in notes
             context.Note.AddOrUpdate(
                 p => p.Id,
-                new Note { Id = 1, Description = "Test bug", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 2, Description = "Test issue", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 3, Description = "Test note", NoteTypeId = 3, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" }
+                new Note { Id = 1, Description = "Test bug - Andrei", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 2, Description = "Test issue - Andrei", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 3, Description = "Test note - RandomUser", NoteTypeId = 3, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" }
                 );
 
             //Seed custom notes
