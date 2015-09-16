@@ -5,7 +5,7 @@ using System.Web;
 
 namespace QANotes.Models
 {
-    public class CustomNoteType
+    public class CustomNoteType : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

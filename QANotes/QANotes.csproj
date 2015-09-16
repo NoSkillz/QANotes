@@ -155,13 +155,17 @@
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
+    <Compile Include="DataAccess\NoteRepository.cs" />
     <Compile Include="DataAccess\QANotesContext.cs" />
+    <Compile Include="DataAccess\Repositories.cs" />
+    <Compile Include="DataAccess\Repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\CustomNoteType.cs" />
+    <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Models\NotesUsersViewModel.cs" />

@@ -10,6 +10,13 @@ namespace QANotes.Controllers
 {
     public class NotesController : Controller
     {
+        private NoteRepository repo;
+
+        public NotesController(NoteRepository noteRepo)
+        {
+            repo = new NoteRepository(new QANotesContext());
+        }
+
         // GET: Notes
         public ActionResult Index(QANotesContext db)
         {
@@ -19,23 +26,24 @@ namespace QANotes.Controllers
 
             //NoteNoteTypesViewModel viewModel = new NoteNoteTypesViewModel();
             //var user = db.Users.FirstOrDefault(p => p.Id == currentuser);
-            IEnumerable<Note> notes = (from u in db.Users
-                         join n in db.Note on u.Id equals n.UserId
-                         where u.Id == currentuser
-                         select new
-                         {
-                             n.Id,
-                             n.NoteTypeId,
-                             n.UserId,
-                             n.Description
-                         }) as IEnumerable<Note>;
+            //IEnumerable<Note> notes = (from u in db.Users
+            //             join n in db.Note on u.Id equals n.UserId
+            //             where u.Id == currentuser
+            //             select new
+            //             {
+            //                 n.Id,
+            //                 n.NoteTypeId,
+            //                 n.UserId,
+            //                 n.Description
+            //             }) as IEnumerable<Note>;
 
-            var viewModel = new NotesUsersViewModel
-            {
-                Notes = notes
-            };
+            //var viewModel = new NotesUsersViewModel
+            //{
+            //    Notes = notes
+            //};
 
-            return View(viewModel);
+            throw new NotImplementedException();
+
         }
     }
 }
