@@ -9,13 +9,12 @@ namespace QANotes.DataAccess
 {
     // TODO: Generic repository
     public interface IRepo<T> : IDisposable
-        where T : IEntity
+        where T : class
     {
         IQueryable<T> GetAll();
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
-        T GetById(int id);
         IQueryable<T> Where(Expression<Func<T, bool>> predicate);
     }
 }

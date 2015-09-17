@@ -10,11 +10,12 @@ namespace QANotes.Controllers
 {
     public class NotesController : Controller
     {
-        private NoteRepository noteRepo;
+        private UnitOfWork unitOfWork = new UnitOfWork();
+        private Repository<Note> repo;
 
         public NotesController()
         {
-            noteRepo = new NoteRepository(new QANotesContext());
+            repo = unitOfWork.Repository<Note>();
         }
 
         // GET: Notes
@@ -42,7 +43,8 @@ namespace QANotes.Controllers
             //{
             //    Notes = notes
             //};
-            var note = noteRepo.Where(p => p.UserId == currentuser).AsEnumerable();
+
+            var note = repo.Where(p => p.UserId == currentuser);
             var viewModel = new NotesUsersViewModel
             {
                 Notes = note
