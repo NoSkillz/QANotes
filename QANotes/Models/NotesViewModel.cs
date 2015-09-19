@@ -5,10 +5,9 @@ using System.Web;
 
 namespace QANotes.Models
 {
-    public class NotesUsersViewModel
+    public class NotesViewModel
     {
         public IEnumerable<Note> Notes { get; set; }
-        public IEnumerable<CustomNoteType> CustomNoteTypes { get; set; }
         public IEnumerable<NoteType> NoteTypes { get; set; }
     }
 }

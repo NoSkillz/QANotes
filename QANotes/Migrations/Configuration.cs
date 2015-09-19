@@ -23,23 +23,22 @@ namespace QANotes.Migrations
             //Seed notetypes
             context.NoteTypes.AddOrUpdate(
                 p => p.Id,
-                new NoteType { Id = 1, Name = "Bug" },
-                new NoteType { Id = 2, Name = "Issue" },
-                new NoteType { Id = 3, Name = "Note" }
+                new NoteType { Id = 1, Name = "Bug", Custom = false, UserId = null },
+                new NoteType { Id = 2, Name = "Issue", Custom = false, UserId = null },
+                new NoteType { Id = 3, Name = "Note", Custom = false, UserId = null },
+                new NoteType { Id = 4, Name = "Action", Custom = true, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new NoteType { Id = 5, Name = "TODO", Custom = true, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
                 );
 
             //Seed built-in notes
-            context.Note.AddOrUpdate(
+            context.Notes.AddOrUpdate(
                 p => p.Id,
                 new Note { Id = 1, Description = "Test bug - Andrei", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 2, Description = "Test issue - Andrei", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 3, Description = "Test note - RandomUser", NoteTypeId = 3, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" }
-                );
-
-            //Seed custom notes
-            context.CustomNote.AddOrUpdate(
-                p => p.Id,
-                new CustomNoteType { Id = 1, Name = "Custom note", UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
+                new Note { Id = 3, Description = "Test note - RandomUser", NoteTypeId = 3, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" },
+                new Note { Id = 4, Description = "C_Action - Do stuff Andrei", NoteTypeId = 4, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 5, Description = "C_TODO - Work goddamnit Andrei", NoteTypeId = 5, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 6, Description = "C_Action - actionstuff Andrei", NoteTypeId = 4, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
                 );
 
             #region Seed users

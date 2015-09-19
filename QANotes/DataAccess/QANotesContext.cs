@@ -17,8 +17,8 @@ namespace QANotes.DataAccess
         }
 
         public DbSet<NoteType> NoteTypes { get; set; }
-        public DbSet<Note> Note { get; set; }
-        public DbSet<CustomNoteType> CustomNote { get; set; }
+        public DbSet<Note> Notes { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

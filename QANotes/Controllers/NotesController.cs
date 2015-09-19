@@ -5,51 +5,40 @@ using System.Web;
 using System.Web.Mvc;
 using QANotes.Models;
 using QANotes.DataAccess;
+using System.Data.Entity;
 
 namespace QANotes.Controllers
 {
     public class NotesController : Controller
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
-        private Repository<Note> repo;
+        private Repository<Note> notes;
+        private Repository<NoteType> types;
+
 
         public NotesController()
         {
-            repo = unitOfWork.Repository<Note>();
+            notes = new Repository<Note>();
+            types = new Repository<NoteType>();
         }
 
         // GET: Notes
         public ActionResult Index(QANotesContext db)
         {
-            var currentuser = "a26b4b32-c487-48ed-8474-915521ee920a";
+            var user = "a26b4b32-c487-48ed-8474-915521ee920a";
 
-
-            //TODO FIX THIS SHIT
-
-            //NoteNoteTypesViewModel viewModel = new NoteNoteTypesViewModel();
-            //var user = db.Users.FirstOrDefault(p => p.Id == currentuser);
-            //IEnumerable<Note> notes = (from u in db.Users
-            //             join n in db.Note on u.Id equals n.UserId
-            //             where u.Id == currentuser
-            //             select new
-            //             {
-            //                 n.Id,
-            //                 n.NoteTypeId,
-            //                 n.UserId,
-            //                 n.Description
-            //             }) as IEnumerable<Note>;
-
-            //var viewModel = new NotesUsersViewModel
-            //{
-            //    Notes = notes
-            //};
-
-            var note = repo.Where(p => p.UserId == currentuser);
-            var viewModel = new NotesUsersViewModel
+            var viewModel = new NotesViewModel
             {
-                Notes = note
+                Notes = notes.Where(p => p.UserId == user),
+                NoteTypes = types.Where(p => p.UserId == user)
             };
 
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult SubmitNote(NotesViewModel viewModel)
+        {
             return View(viewModel);
         }
     }

@@ -1,4 +1,4 @@
-﻿@model QANotes.Models.NotesUsersViewModel
+﻿@model QANotes.Models.NotesViewModel
 
 @{
     ViewBag.Title = "My notes";
@@ -10,6 +10,15 @@
 {
     foreach (var item in Model.Notes)
     {
-        <p>@item.Id, @item.Description</p>
+        <p>
+            Note: @item.Id, @item.Description, @item.NoteTypeId, @item.UserId
+        </p>
+    }
+
+    foreach (var item in Model.NoteTypes)
+    {
+        <p>
+            Type: @item.Id, @item.Name, @item.Custom, @item.UserId
+        </p>
     }
 }
