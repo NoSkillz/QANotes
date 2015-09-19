@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using QANotes.Models;
 using QANotes.DataAccess;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity;
 
 namespace QANotes.Controllers
 {
@@ -25,12 +26,12 @@ namespace QANotes.Controllers
         // GET: Notes
         public ActionResult Index(QANotesContext db)
         {
-            var user = "a26b4b32-c487-48ed-8474-915521ee920a";
+            var userId = User.Identity.GetUserId();
 
             var viewModel = new NotesViewModel
             {
-                Notes = notes.Where(p => p.UserId == user),
-                NoteTypes = types.Where(p => p.UserId == user)
+                Notes = notes.Where(p => p.UserId == userId),
+                NoteTypes = types.Where(p => p.UserId == userId)
             };
 
             return View(viewModel);
