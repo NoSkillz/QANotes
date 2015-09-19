@@ -3,3 +3,14 @@ window.onload = function () {
     emailElem = document.getElementById('Email');
     emailElem.focus();
 };
+
+//function GetNotes() {
+//    var notesArray = [];
+
+//}
+
+//function NotesViewModel() {
+
+//};
+
+//ko.applyBindings(NotesViewModel());

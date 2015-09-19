@@ -1,4 +1,5 @@
 ﻿@model QANotes.Models.NotesViewModel
+@using QANotes.Models
 
 @{
     ViewBag.Title = "My notes";
@@ -6,19 +7,22 @@
 
 <h2>My notes</h2>
 
-@using (Html.BeginForm())
-{
-    foreach (var item in Model.Notes)
-    {
-        <p>
-            Note: @item.Id, @item.Description, @item.NoteTypeId, @item.UserId
-        </p>
-    }
+<h3>View</h3>
 
-    foreach (var item in Model.NoteTypes)
-    {
-        <p>
-            Type: @item.Id, @item.Name, @item.Custom, @item.UserId
-        </p>
-    }
-}
+
+
+<div class="form-horizontal" data-bind="foreach: Notes">
+    <input type="text" data-bind="value: Description" />
+</div>
+
+<br />
+<div class="form-horizontal" data-bind="foreach: Notes">
+    <input type="text" data-bind="value: Description" />
+</div>
+
+
+
+<script type="text/javascript">
+    var viewModel = ko.mapping.fromJS(@Html.Raw(Model.Jsonify()));
+    ko.applyBindings(viewModel);
+</script>
