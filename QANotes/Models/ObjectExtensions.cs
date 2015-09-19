@@ -16,5 +16,13 @@ namespace QANotes.Models
             js.Serialize(jw, obj);
             return jw.ToString();
         }
+
+        public static NotesViewModel UnJsonify(this object obj)
+        {
+            //TODO convert json to NotesViewModel
+            //http://www.newtonsoft.com/json/help/html/CustomJsonConverter.htm
+
+            throw new NotImplementedException();
+        }
     }
 }

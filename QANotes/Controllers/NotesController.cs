@@ -37,9 +37,30 @@ namespace QANotes.Controllers
         }
 
         [HttpPost]
-        public ActionResult SubmitNote(NotesViewModel viewModel)
+        public ActionResult SubmitNote(object data)
         {
-            return View(viewModel);
+            NotesViewModel viewModel = data.UnJsonify();
+
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+
+            foreach (var note in viewModel.Notes)
+            {
+                notes.Update(note);
+            }
+
+            notes.SaveChanges();
+
+            foreach (var type in viewModel.NoteTypes)
+            {
+                types.Update(type);
+            }
+
+            types.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

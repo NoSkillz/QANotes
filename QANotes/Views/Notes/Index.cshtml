@@ -10,10 +10,15 @@
 <h3>View</h3>
 
 
-
-<div class="form-horizontal" data-bind="foreach: Notes">
-    <input type="text" data-bind="value: Description" />
-</div>
+@using (Html.BeginForm("SubmitNote", "Notes", FormMethod.Post))
+{
+    <div class="form-horizontal" data-bind="foreach: Notes">
+        <input type="text" data-bind="value: Description" />
+    </div>
+    <div>
+        <button class="btn btn-primary" onclick="sendData();" type="submit" name="SubmitNote">Submit</button>
+    </div>
+}
 
 <br />
 <div class="form-horizontal" data-bind="foreach: Notes">
@@ -25,4 +30,9 @@
 <script type="text/javascript">
     var viewModel = ko.mapping.fromJS(@Html.Raw(Model.Jsonify()));
     ko.applyBindings(viewModel);
+
+    var sendData = function () {
+        var data = ko.mapping.toJS(viewModel);
+        return data;
+    };
 </script>

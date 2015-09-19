@@ -46,6 +46,11 @@ namespace QANotes.DataAccess
             return db.Set<T>().Where(predicate);
         }
 
+        public void SaveChanges()
+        {
+            db.SaveChanges();
+        }
+
         #region Dispose
         private bool disposed = false;
 

@@ -4,13 +4,4 @@ window.onload = function () {
     emailElem.focus();
 };
 
-//function GetNotes() {
-//    var notesArray = [];
 
-//}
-
-//function NotesViewModel() {
-
-//};
-
-//ko.applyBindings(NotesViewModel());
