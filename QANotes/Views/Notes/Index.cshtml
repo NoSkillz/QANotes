@@ -11,23 +11,37 @@
 
 
 @*@using (Html.BeginForm("SubmitNote", "Notes", FormMethod.Post))
-{*@
+    {*@
 @*<form method="post" action="SubmitNote" data-bind="viewModel">
-    <div class="form-horizontal" data-bind="foreach: Notes">
-        <input type="text" data-bind="value: Description" />
-    </div>
+        <div class="form-horizontal" data-bind="foreach: Notes">
+            <input type="text" data-bind="value: Description" />
+        </div>
+        <div>
+            <button class="btn btn-primary" data-bind="submit: jsonString" type="submit" name="SubmitNote">Submit</button>
+        </div>
+    </form>*@
+
+
+<div data-bind="foreach: Notes">
+    <input type="text" data-bind="value: Description" />
+
+    @*<select data-bind="foreach: $root.NoteTypes">
+        <option data-bind="text: Value, value: $data"></option>
+    </select>*@
+
+    <select data-bind="options: $root.NoteTypes, optionsValue: 'Id', optionsText:'Name'"></select>
+
     <div>
-        <button class="btn btn-primary" data-bind="submit: jsonString" type="submit" name="SubmitNote">Submit</button>
+        <button class="submit-btn">Submit</button>
     </div>
-</form>*@
+</div>
+
+<hr />
 
 <div>
-    <div data-bind="foreach: Notes">
-        <input type="text" data-bind="value: Description"/>
-        <div>
-            <button class="submit-btn">Submit</button>
-        </div>
-    </div>
+    <text>
+
+    </text>
 </div>
 
 

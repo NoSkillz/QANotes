@@ -18,6 +18,8 @@ namespace QANotes.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
+        //TODO Cleanup hash. We need a better password
+
         protected override void Seed(QANotesContext context)
         {
             //Seed notetypes
@@ -46,6 +48,15 @@ namespace QANotes.Migrations
 
             context.Users.AddOrUpdate(
                 p => p.Email,
+                new AppUser
+                {
+                    Id = "00000000-0000-0000-0000-000000000000",
+                    Email = "system@QANote",
+                    DateCreated = DateTime.Parse("00:00:00 00.00.0000"),
+                    UserName = "system@QANote",
+                    SecurityStamp = "AC280409-EAC7-4293-9790-4632C5AC32DF".ToString(),
+                    PasswordHash = password,
+                },
                 new AppUser
                 {
                     Id = "A26B4B32-C487-48ED-8474-915521EE920A",

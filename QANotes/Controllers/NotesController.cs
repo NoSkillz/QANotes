@@ -24,14 +24,14 @@ namespace QANotes.Controllers
         }
 
         // GET: Notes
-        public ActionResult Index(object data)
+        public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
 
             var viewModel = new NotesViewModel
             {
                 Notes = notes.Where(p => p.UserId == userId),
-                NoteTypes = types.Where(p => p.UserId == userId)
+                NoteTypes = types.Where(p => p.UserId == userId || p.Custom == false),
             };
 
             return View(viewModel);

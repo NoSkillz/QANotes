@@ -6,7 +6,7 @@ window.onload = function () {
     emailElement.focus();
 };
 
-
+//Submit ko viewModel with ajax
 window.onload = function () {
     $('.submit-btn').click(function () {
         $.ajax({
