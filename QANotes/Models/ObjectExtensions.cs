@@ -17,12 +17,14 @@ namespace QANotes.Models
             return jw.ToString();
         }
 
-        public static NotesViewModel UnJsonify(this object obj)
-        {
-            //TODO convert json to NotesViewModel
-            //http://www.newtonsoft.com/json/help/html/CustomJsonConverter.htm
+        //public static NotesViewModel UnJsonify(this object obj)
+        //{
+        //    //TODO convert json to NotesViewModel
+        //    //http://www.newtonsoft.com/json/help/html/CustomJsonConverter.htm
 
-            throw new NotImplementedException();
-        }
+        //    NotesViewModel result = JsonConvert.DeserializeObject<NotesViewModel>(obj.ToString());
+        //    return result;
+        //    //throw new NotImplementedException();
+        //}
     }
 }

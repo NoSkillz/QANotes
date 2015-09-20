@@ -10,29 +10,32 @@
 <h3>View</h3>
 
 
-@using (Html.BeginForm("SubmitNote", "Notes", FormMethod.Post))
-{
+@*@using (Html.BeginForm("SubmitNote", "Notes", FormMethod.Post))
+{*@
+@*<form method="post" action="SubmitNote" data-bind="viewModel">
     <div class="form-horizontal" data-bind="foreach: Notes">
         <input type="text" data-bind="value: Description" />
     </div>
     <div>
-        <button class="btn btn-primary" onclick="sendData();" type="submit" name="SubmitNote">Submit</button>
+        <button class="btn btn-primary" data-bind="submit: jsonString" type="submit" name="SubmitNote">Submit</button>
     </div>
-}
+</form>*@
 
-<br />
-<div class="form-horizontal" data-bind="foreach: Notes">
-    <input type="text" data-bind="value: Description" />
+<div>
+    <div data-bind="foreach: Notes">
+        <input type="text" data-bind="value: Description"/>
+        <div>
+            <button class="submit-btn">Submit</button>
+        </div>
+    </div>
 </div>
 
 
 
-<script type="text/javascript">
-    var viewModel = ko.mapping.fromJS(@Html.Raw(Model.Jsonify()));
-    ko.applyBindings(viewModel);
 
-    var sendData = function () {
-        var data = ko.mapping.toJS(viewModel);
-        return data;
-    };
+<script>
+    var viewModel = ko.mapping.fromJS(@Html.Raw(Model.Jsonify()));
+
+    ko.applyBindings(viewModel);
 </script>
+

@@ -24,7 +24,7 @@ namespace QANotes.Controllers
         }
 
         // GET: Notes
-        public ActionResult Index(QANotesContext db)
+        public ActionResult Index(object data)
         {
             var userId = User.Identity.GetUserId();
 
@@ -38,13 +38,11 @@ namespace QANotes.Controllers
         }
 
         [HttpPost]
-        public ActionResult SubmitNote(object data)
+        public ActionResult SaveNote(NotesViewModel viewModel)
         {
-            NotesViewModel viewModel = data.UnJsonify();
-
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid && viewModel == null)
             {
-                return View(viewModel);
+                return Json("Error.");
             }
 
             foreach (var note in viewModel.Notes)
@@ -61,7 +59,7 @@ namespace QANotes.Controllers
 
             types.SaveChanges();
 
-            return RedirectToAction("Index");
+            return Json("Success.");
         }
     }
 }
