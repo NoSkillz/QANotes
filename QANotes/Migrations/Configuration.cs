@@ -39,7 +39,7 @@ namespace QANotes.Migrations
                 new Note { Id = 2, Description = "Test issue - Andrei", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 3, Description = "Test note - RandomUser", NoteTypeId = 3, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" },
                 new Note { Id = 4, Description = "C_Action - Do stuff Andrei", NoteTypeId = 4, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 5, Description = "C_TODO - Work goddamnit Andrei", NoteTypeId = 5, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 5, Description = "C_TODO - A decently long text to see how it looks like. I'm assuming some bugs will soon come to light", NoteTypeId = 5, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 6, Description = "C_Action - actionstuff Andrei", NoteTypeId = 4, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
                 );
 
@@ -52,7 +52,7 @@ namespace QANotes.Migrations
                 {
                     Id = "00000000-0000-0000-0000-000000000000",
                     Email = "system@QANote",
-                    DateCreated = DateTime.Parse("00:00:00 00.00.0000"),
+                    DateCreated = DateTime.Now,
                     UserName = "system@QANote",
                     SecurityStamp = "AC280409-EAC7-4293-9790-4632C5AC32DF".ToString(),
                     PasswordHash = password,
