@@ -46,15 +46,24 @@ namespace QANotes.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(NotesViewModel viewModel)
+        public ActionResult Edit(Note model)
         {
-            return null;
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            notes.Update(model);
+
+            notes.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public ActionResult SaveNote(NotesViewModel viewModel)
+        public ActionResult Save(NotesViewModel viewModel)
         {
-            if (!ModelState.IsValid && viewModel == null)
+            if (!ModelState.IsValid)
             {
                 return Json("Error.");
             }

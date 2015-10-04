@@ -27,9 +27,9 @@ namespace QANotes.Migrations
                 p => p.Id,
                 new NoteType { Id = 1, Name = "Bug", Custom = false, UserId = null },
                 new NoteType { Id = 2, Name = "Issue", Custom = false, UserId = null },
-                new NoteType { Id = 3, Name = "Note", Custom = false, UserId = null },
-                new NoteType { Id = 4, Name = "Action", Custom = true, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new NoteType { Id = 5, Name = "TODO", Custom = true, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
+                new NoteType { Id = 3, Name = "Note", Custom = false, UserId = null }
+                //new NoteType { Id = 4, Name = "Action", Custom = true, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                //new NoteType { Id = 5, Name = "TODO", Custom = true, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
                 );
 
             //Seed built-in notes
@@ -51,13 +51,13 @@ namespace QANotes.Migrations
                 //Notes
                 new Note { Id = 9, Description = "How would a long list look?", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 10, Description = "How would implementing some statistics go?", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 11, Description = "Is there anything else I can do better? I should investigate", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 11, Description = "Is there anything else I can do better? I should investigate", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
 
                 //Custom
-                new Note { Id = 12, Description = "Test this feature", NoteTypeId = 4, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 13, Description = "Test that other feature", NoteTypeId = 4, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" },
-                new Note { Id = 14, Description = "TODO: Find something to fix", NoteTypeId = 5, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" },
-                new Note { Id = 15, Description = "TODO: Find something to implement", NoteTypeId = 5, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" }
+                //new Note { Id = 12, Description = "Test this feature", NoteTypeId = 4, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                //new Note { Id = 13, Description = "Test that other feature", NoteTypeId = 4, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" },
+                //new Note { Id = 14, Description = "TODO: Find something to fix", NoteTypeId = 5, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" },
+                //new Note { Id = 15, Description = "TODO: Find something to implement", NoteTypeId = 5, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" }
                 );
 
             #region Seed users

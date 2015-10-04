@@ -8,24 +8,30 @@
                 <h4 class="modal-title">Edit note</h4>
             </div>
             <div class="modal-body">
-                <div>
-                    @Html.LabelFor(model => Model.Description, new { @class = "control-label" })
+                @using (Html.BeginForm("Edit", "Notes", FormMethod.Post, null))
+                {
                     <div>
-                        @Html.TextAreaFor(model => Model.Description, new { @class = "form-control", rows = "5" })
+                        @Html.LabelFor(model => Model.Description, new { @class = "control-label" })
+                        <div>
+                            @Html.TextAreaFor(model => Model.Description, new { @class = "form-control", rows = "5" })
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    @Html.LabelFor(model => Model.NoteTypeId, new { @class = "control-label" })
                     <div>
-                        @Html.EditorFor(model => Model.NoteTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.LabelFor(model => Model.NoteTypeId, new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => Model.NoteTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                    @Html.HiddenFor(model => Model.UserId)
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
+    
