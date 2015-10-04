@@ -5,19 +5,19 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Modal title</h4>
+                <h4 class="modal-title">Edit note</h4>
             </div>
             <div class="modal-body">
-                <div class="">
+                <div>
                     @Html.LabelFor(model => Model.Description, new { @class = "control-label" })
-                    <div class="">
+                    <div>
                         @Html.TextAreaFor(model => Model.Description, new { @class = "form-control", rows = "5" })
                     </div>
                 </div>
 
-                <div class="">
+                <div>
                     @Html.LabelFor(model => Model.NoteTypeId, new { @class = "control-label" })
-                    <div class="">
+                    <div>
                         @Html.EditorFor(model => Model.NoteTypeId, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                 </div>
