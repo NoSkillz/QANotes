@@ -1,5 +1,5 @@
 ﻿@model QANotes.Models.Note
-
+@* TODO Make this modal look pretty *@
 <div class="modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -8,11 +8,19 @@
                 <h4 class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body">
-                @Html.LabelFor(model => Model.Description)
-                @Html.EditorFor(model => Model.Description)
+                <div class="">
+                    @Html.LabelFor(model => Model.Description, new { @class = "control-label" })
+                    <div class="">
+                        @Html.TextAreaFor(model => Model.Description, new { @class = "form-control", rows = "5" })
+                    </div>
+                </div>
 
-                @Html.LabelFor(model => Model.NoteTypeId)
-                @Html.EditorFor(model => Model.NoteTypeId)
+                <div class="">
+                    @Html.LabelFor(model => Model.NoteTypeId, new { @class = "control-label" })
+                    <div class="">
+                        @Html.EditorFor(model => Model.NoteTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
