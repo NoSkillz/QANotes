@@ -9,33 +9,12 @@
 
 
 
-@*@using (Html.BeginForm("SubmitNote", "Notes", FormMethod.Post))
-    {*@
-@*<form method="post" action="SubmitNote" data-bind="viewModel">
-        <div class="form-horizontal" data-bind="foreach: Notes">
-            <input type="text" data-bind="value: Description" />
-        </div>
-        <div>
-            <button class="btn btn-primary" data-bind="submit: jsonString" type="submit" name="SubmitNote">Submit</button>
-        </div>
-    </form>*@
-
-
-@*<div data-bind="foreach: Notes">
-        THIS WORKS BUT IS GARBAGE
-        <input type="text" disabled="disabled" data-bind="value: Description" />
-        <input type="text" data-bind="value: NoteTypeId" />
-        <div>
-            <button class="edit-btn">Edit</button>
-        </div>
-    </div>*@
-
 <div class="row">
     <div class="col-md-3">
         <h4 class="col-md-offset-1">Databind this</h4>
         <ul class="list-group" data-bind="foreach: Notes">
             @* Id should probably not start with a digit. Seems to be an issue. *@
-            <li class="list-group-item note" data-bind="attr: { 'Id' : Id, 'NoteType' : NoteTypeId}, text: Description"></li>
+            <li class="list-group-item note" data-bind="attr: { 'Id' : Id, 'NoteType' : NoteTypeId, onclick : 'editNote(id)'}, text: Description"></li>
         </ul>
     </div>
 
@@ -62,17 +41,21 @@
 </div>
 
 
-<div id='modal' class='modal fade in' data-url='@Url.Action("Edit")'>
+@*<div id='modal' class='modal fade in' data-url='@Url.Action("Edit")'>
     <div id='modal-container'>
     </div>
 </div>
-<button id='edit'>Edit</button>
-
+<button id='edit'>Edit</button>*@
+<div id='modal' class='modal fade in'>
+    <div id='modal-container'>
+    </div>
+</div>
 
 
 <script>
+    var viewModel;
     $(function(){
-        var viewModel = ko.mapping.fromJS(@Html.Raw(Model.Jsonify()));
+        viewModel = ko.mapping.fromJS(@Html.Raw(Model.Jsonify()));
         ko.applyBindings(viewModel);
     })
 </script>

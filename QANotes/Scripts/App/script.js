@@ -1,9 +1,8 @@
-﻿//var viewModel;
-
-//Select Email fields on page load
+﻿//Select Email fields on page load
 $(function () {
     $('#Email').focus();
 });
+
 
 //Submit ko viewModel with ajax
 $(function () {
@@ -23,17 +22,21 @@ $(function () {
     });
 });
 
-
-//Display the modal dialog
-$(function () {
-    $('#edit').click(function () {
-        var url = $('#modal').data('url');
-
-        $.get(url, function (data) {
-            $('#modal-container').html(data);
-            $('.modal').modal('show');
-        });
+// send an ajax request to edit the note. on success, it calls showModal passing the response
+function editNote(id) {
+    $.ajax({
+        url: './Notes/Edit/' + id,
+        type: 'GET',
+        success: function (response) {
+            showModal(response);
+        },
+        error: function (response) {
+            console.log(response);
+        }
     });
-});
+};
 
-//
+function showModal(e) {
+    $('#modal-container').html(e);
+    $('.modal').modal('show');
+}

@@ -37,11 +37,18 @@ namespace QANotes.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Edit()
+        [HttpGet]
+        public ActionResult Edit(int Id)
         {
-            var model = notes.Where(p => p.Id == 1).FirstOrDefault();
+            var model = notes.Where(p => p.Id == Id).FirstOrDefault();
 
             return PartialView("_Edit", model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(NotesViewModel viewModel)
+        {
+            return null;
         }
 
         [HttpPost]

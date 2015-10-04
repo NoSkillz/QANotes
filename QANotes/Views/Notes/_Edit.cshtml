@@ -8,7 +8,11 @@
                 <h4 class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body">
-                <p>My text here</p>
+                @Html.LabelFor(model => Model.Description)
+                @Html.EditorFor(model => Model.Description)
+
+                @Html.LabelFor(model => Model.NoteTypeId)
+                @Html.EditorFor(model => Model.NoteTypeId)
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
