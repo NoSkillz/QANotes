@@ -23,7 +23,7 @@ namespace QANotes.Controllers
             types = new Repository<NoteType>();
         }
 
-        // GET: Notes
+        // GET /Notes/Index
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
@@ -37,6 +37,7 @@ namespace QANotes.Controllers
             return View(viewModel);
         }
 
+        // GET /Notes/Edit/5
         [HttpGet]
         public ActionResult Edit(int Id)
         {
@@ -58,31 +59,6 @@ namespace QANotes.Controllers
             notes.SaveChanges();
 
             return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public ActionResult Save(NotesViewModel viewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return Json("Error.");
-            }
-
-            foreach (var note in viewModel.Notes)
-            {
-                notes.Update(note);
-            }
-
-            notes.SaveChanges();
-
-            foreach (var type in viewModel.NoteTypes)
-            {
-                types.Update(type);
-            }
-
-            types.SaveChanges();
-
-            return Json("Success.");
         }
     }
 }
