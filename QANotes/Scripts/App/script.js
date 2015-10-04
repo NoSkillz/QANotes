@@ -1,20 +1,19 @@
-﻿var viewModel;
+﻿//var viewModel;
 
 //Select Email fields on page load
-window.onload = function () {
-    emailElement = document.getElementById('Email');
-    emailElement.focus();
-};
+$(function () {
+    $('#Email').focus();
+});
 
 //Submit ko viewModel with ajax
-window.onload = function () {
+$(function () {
     $('.submit-btn').click(function () {
         $.ajax({
             url: './Notes/SaveNote',
             type: 'POST',
             contentType: "application/json",
             data: ko.mapping.toJSON(viewModel),
-            success: function(result) {
+            success: function (result) {
                 console.log(result);
             },
             error: function (result) {
@@ -22,4 +21,19 @@ window.onload = function () {
             }
         });
     });
-};
+});
+
+
+//Display the modal dialog
+$(function () {
+    $('#edit').click(function () {
+        var url = $('#modal').data('url');
+
+        $.get(url, function (data) {
+            $('#modal-container').html(data);
+            $('.modal').modal('show');
+        });
+    });
+});
+
+//
