@@ -35,12 +35,29 @@ namespace QANotes.Migrations
             //Seed built-in notes
             context.Notes.AddOrUpdate(
                 p => p.Id,
-                new Note { Id = 1, Description = "Test bug - Andrei", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 2, Description = "Test issue - Andrei", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 3, Description = "Test note - RandomUser", NoteTypeId = 3, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" },
-                new Note { Id = 4, Description = "C_Action - Do stuff Andrei", NoteTypeId = 4, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 5, Description = "C_TODO - A decently long text to see how it looks like. I'm assuming some bugs will soon come to light", NoteTypeId = 5, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
-                new Note { Id = 6, Description = "C_Action - actionstuff Andrei", NoteTypeId = 4, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
+                //Bugs
+                new Note { Id = 1, Description = "Exception when trying to add a note", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 2, Description = "App looks bad on small resolutions", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 3, Description = "Reloading is very slow", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 4, Description = "Notes are not saved after confirming", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 5, Description = "You can't delete a note yet", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+
+                //Issues
+                new Note { Id = 6, Description = "When using a mobile device, the compatibility of the app hasn't been checked", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 7, Description = "The app's theme doesn't look very nice. We should check other themes", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 8, Description = "Databinding is incomplete", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+
+
+                //Notes
+                new Note { Id = 9, Description = "How would a long list look?", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 10, Description = "How would implementing some statistics go?", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 11, Description = "Is there anything else I can do better? I should investigate", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+
+                //Custom
+                new Note { Id = 12, Description = "Test this feature", NoteTypeId = 4, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
+                new Note { Id = 13, Description = "Test that other feature", NoteTypeId = 4, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" },
+                new Note { Id = 14, Description = "TODO: Find something to fix", NoteTypeId = 5, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" },
+                new Note { Id = 15, Description = "TODO: Find something to implement", NoteTypeId = 5, UserId = "BAE991AB-A59F-4210-A732-01B15FE88FFC" }
                 );
 
             #region Seed users
