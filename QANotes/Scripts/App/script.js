@@ -23,7 +23,7 @@ $(function () {
 });
 
 // send an ajax request to edit the note. on success, it calls showModal passing the response
-function editNote(id) {
+editNote = function(id) {
     $.ajax({
         url: './Notes/Edit/' + id,
         type: 'GET',
@@ -36,7 +36,7 @@ function editNote(id) {
     });
 };
 
-function showModal(e) {
+var showModal = function(e) {
     $('#modal-container').html(e);
     $('.modal').modal('show');
 }
