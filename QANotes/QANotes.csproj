@@ -183,8 +183,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510161933497_initial.cs" />
+    <Compile Include="Migrations\201510161933497_initial.Designer.cs">
+      <DependentUpon>201510161933497_initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppUser.cs" />
+    <Compile Include="Models\EditNoteViewModel.cs" />
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Note.cs" />
@@ -218,6 +223,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201510161933497_initial.resx">
+      <DependentUpon>201510161933497_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

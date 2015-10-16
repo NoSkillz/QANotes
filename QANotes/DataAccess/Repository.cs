@@ -48,6 +48,13 @@ namespace QANotes.DataAccess
             return db.Set<T>().Where(predicate);
         }
 
+        public IQueryable<T> Select(Expression<Func<T, T>> selector)
+        {
+            //return db.Set<T>().Select(selector);
+            return db.Set<T>().Select(selector);
+        }
+
+
         public void SaveChanges()
         {
             db.SaveChanges();

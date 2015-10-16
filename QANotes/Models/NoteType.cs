@@ -9,7 +9,6 @@ namespace QANotes.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public bool Custom { get; set; }
         public virtual string UserId { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace QANotes.Controllers
             var viewModel = new NotesViewModel
             {
                 Notes = notes.Where(p => p.UserId == userId),
-                NoteTypes = types.Where(p => p.UserId == userId || p.Custom == false),
+                NoteTypes = types.Where(p => p.UserId == userId),
             };
 
             return View(viewModel);
@@ -41,20 +41,37 @@ namespace QANotes.Controllers
         [HttpGet]
         public ActionResult Edit(int Id)
         {
-            var model = notes.Where(p => p.Id == Id).FirstOrDefault();
+            //var model = notes.Where(p => p.Id == Id).FirstOrDefault();
 
-            return PartialView("_Edit", model);
+
+            var note = notes.Where(p => p.Id == Id).First();
+
+            var viewModel = new EditNoteViewModel
+            {
+                Note = note,
+                SelectedType = note.NoteTypeId,
+                Types = types.GetAll().Select(x => new SelectListItem
+                {
+                    Value = x.Id.ToString(),
+                    Text = x.Name,
+                    Selected = (note.NoteTypeId == x.Id)
+                })
+            };
+
+            return PartialView("_Edit", viewModel);
         }
 
         [HttpPost]
-        public ActionResult Edit(Note model)
+        public ActionResult Edit(EditNoteViewModel model)
         {
+            //TODO need to recheck what comes in from _Edit and save
+
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            notes.Update(model);
+            notes.Update(model.Note);
 
             notes.SaveChanges();
 

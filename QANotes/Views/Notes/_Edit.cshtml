@@ -1,4 +1,4 @@
-﻿@model QANotes.Models.Note
+﻿@model QANotes.Models.EditNoteViewModel
 
 <div class="modal">
     <div class="modal-dialog">
@@ -11,19 +11,23 @@
                 @using (Html.BeginForm("Edit", "Notes", FormMethod.Post, null))
                 {
                     <div>
-                        @Html.LabelFor(model => Model.Description, new { @class = "control-label" })
+                        @Html.LabelFor(modelItem => Model.Note.Description , new { @class = "control-label" })
                         <div>
-                            @Html.TextAreaFor(model => Model.Description, new { @class = "form-control", rows = "5" })
+                            @Html.TextAreaFor(modelItem => Model.Note.Description, new { @class = "form-control", rows = "5" })
                         </div>
                     </div>
 
                     <div>
-                        @Html.LabelFor(model => Model.NoteTypeId, new { @class = "control-label" })
+                        @*@Html.LabelFor(model => Model.No, new { @class = "control-label" })*@
                         <div>
-                            @Html.EditorFor(model => Model.NoteTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                            @*@Html.EditorFor(model => Model.NoteTypeId, new { htmlAttributes = new { @class = "form-control" } })*@
+                        </div>
+                        <div>
+                            @Html.DropDownListFor(modelItem => Model.Note.NoteTypeId, Model.Types, new { @class = "form-control" })
                         </div>
                     </div>
-                    @Html.HiddenFor(model => Model.UserId)
+                    @Html.HiddenFor(modelItem => Model.Note.Id)
+                    @Html.HiddenFor(modelItem => Model.Note.UserId)
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

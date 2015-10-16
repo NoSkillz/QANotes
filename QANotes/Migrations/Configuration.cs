@@ -25,9 +25,9 @@ namespace QANotes.Migrations
             //Seed notetypes
             context.NoteTypes.AddOrUpdate(
                 p => p.Id,
-                new NoteType { Id = 1, Name = "Bug", Custom = false, UserId = null },
-                new NoteType { Id = 2, Name = "Issue", Custom = false, UserId = null },
-                new NoteType { Id = 3, Name = "Note", Custom = false, UserId = null }
+                new NoteType { Id = 1, Name = "Issue", UserId = null },
+                new NoteType { Id = 2, Name = "Note", UserId = null },
+                new NoteType { Id = 3, Name = "Action", UserId = null }
                 //new NoteType { Id = 4, Name = "Action", Custom = true, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 //new NoteType { Id = 5, Name = "TODO", Custom = true, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
                 );
@@ -35,20 +35,20 @@ namespace QANotes.Migrations
             //Seed built-in notes
             context.Notes.AddOrUpdate(
                 p => p.Id,
-                //Bugs
+                //Issues
                 new Note { Id = 1, Description = "Exception when trying to add a note", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 2, Description = "App looks bad on small resolutions", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 3, Description = "Reloading is very slow", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 4, Description = "Notes are not saved after confirming", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 5, Description = "You can't delete a note yet", NoteTypeId = 1, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
 
-                //Issues
+                //Notes
                 new Note { Id = 6, Description = "When using a mobile device, the compatibility of the app hasn't been checked", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 7, Description = "The app's theme doesn't look very nice. We should check other themes", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 8, Description = "Databinding is incomplete", NoteTypeId = 2, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
 
 
-                //Notes
+                //Action
                 new Note { Id = 9, Description = "How would a long list look?", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 10, Description = "How would implementing some statistics go?", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" },
                 new Note { Id = 11, Description = "Is there anything else I can do better? I should investigate", NoteTypeId = 3, UserId = "A26B4B32-C487-48ED-8474-915521EE920A" }
