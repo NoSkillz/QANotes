@@ -41,11 +41,14 @@ namespace QANotes.Controllers
         [HttpGet]
         public ActionResult Edit(int Id)
         {
-            //var model = notes.Where(p => p.Id == Id).FirstOrDefault();
+            var note = notes.Where(p => p.Id == Id).FirstOrDefault();
 
+            if (note == null || note.UserId != User.Identity.GetUserId() )
+            {
+                throw new HttpException("Requested note not found.");
+            }
 
-            var note = notes.Where(p => p.Id == Id).First();
-
+            // create a viewmodel so the user has some dropdown lists
             var viewModel = new EditNoteViewModel
             {
                 Note = note,
@@ -61,11 +64,10 @@ namespace QANotes.Controllers
             return PartialView("_Edit", viewModel);
         }
 
+        // POST /Notes/Edit/5
         [HttpPost]
         public ActionResult Edit(EditNoteViewModel model)
         {
-            //TODO need to recheck what comes in from _Edit and save
-
             if (!ModelState.IsValid)
             {
                 return View();
@@ -74,6 +76,8 @@ namespace QANotes.Controllers
             notes.Update(model.Note);
 
             notes.SaveChanges();
+
+            notes.Dispose();
 
             return RedirectToAction("Index");
         }

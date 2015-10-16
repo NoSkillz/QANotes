@@ -187,6 +187,10 @@
     <Compile Include="Migrations\201510161933497_initial.Designer.cs">
       <DependentUpon>201510161933497_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510161938500_initial1.cs" />
+    <Compile Include="Migrations\201510161938500_initial1.Designer.cs">
+      <DependentUpon>201510161938500_initial1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\EditNoteViewModel.cs" />
@@ -227,6 +231,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201510161933497_initial.resx">
       <DependentUpon>201510161933497_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510161938500_initial1.resx">
+      <DependentUpon>201510161938500_initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

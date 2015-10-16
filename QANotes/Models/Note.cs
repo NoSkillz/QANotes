@@ -11,5 +11,6 @@ namespace QANotes.Models
         public string Description { get; set; }
         public virtual int NoteTypeId { get; set; }
         public virtual string UserId { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }
